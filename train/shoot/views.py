@@ -17,11 +17,14 @@ def trainer(request):
     ctx = {}
     scores = 0
     # 训练时间
+    t1 = 0
+    t2 = 0
     train_time = train_result_list_file.t0
     if request.method == 'POST':
         # 数值初始化
         t1 = 0
         t2 = 0
+        train_time = train_result_list_file.t0
         train_result_list_file.n = 0
         train_result_list_file.scores_all = 0
         train_result_list_file.result_train_all = []
@@ -38,7 +41,7 @@ def trainer(request):
         # 按照输入的总组数来进行运行
         if train_result_list_file.n < int(train_result_list_file.train_num):
             # 并且一组训练完毕之后数组初始化 ，
-            if len(train_result_list_file.train_result_list) >= 2:
+            if len(train_result_list_file.train_result_list) >= 20:
                 train_result_list_file.train_result_list = []
                 return render(request, 'trainer.html', ctx)
             else:
@@ -48,7 +51,7 @@ def trainer(request):
                 train_result_list_file.train_result_list.append(trainer_point)
 
                 # 控制训练组数
-                if len(train_result_list_file.train_result_list) < 2:
+                if len(train_result_list_file.train_result_list) < 20:
                     print(len(train_result_list_file.train_result_list))
                     return render(request, 'trainer.html', ctx)
                 else:
@@ -90,7 +93,6 @@ def trainer(request):
             # 训练时间
             t1 = time.time()
             t2 = t1 - train_time
-            # ctx['time'] = '%.2fs' % (t2/60)
             m, s = divmod(t2, 60)
             h, m = divmod(m, 60)
             ctx['time'] = "%02d时%02d分%02d秒" % (h, m, s)
