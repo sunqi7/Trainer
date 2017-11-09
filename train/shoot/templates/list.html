@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练球者</title>
+    {% load staticfiles %}
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<ul class="train-ul">
+    {% for train in train_result_list%}
+    <li class="train-li">{{ train }}</li>
+    {% endfor %}
+</ul>
+
+
+<h1 class="train-h1">本组练习得分:</h1>
+<h1 class="train-h1">{{scores}}分</h1>
+<p>第{{start}}组</p>
+<p>共{{over}}组</p>
+{% if start = over %}
+<a href="/trainer/"><img src="/static/images/icon_finish.png" ></a>
+{% else %}
+<a href="/trainer/"><img src="/static/images/icon_next2.png" ></a>
+{% endif %}
+</body>
+</html>

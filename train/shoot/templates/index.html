@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练球者</title>
+    {% load staticfiles %}
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+<img class="logo" src="/static/images/footballtrainer.png">
+<h1 class="index-h1">射门练习</h1>
+<form class="index-form" action="/trainer/" method="post">
+    {% csrf_token %}
+    <div>
+        <span>名字</span><input type="text" name="name">
+    </div>
+    <div>
+        <span>组数</span><input type="text" name="train_num">
+    </div>
+    <p class="index-p">注：每组20次练习，输入需要练习的组数</p>
+    <button class="index-btn"><img src="/static/images/icon_start.png"></button>
+</form>
+</body>
+</html>

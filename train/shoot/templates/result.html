@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练球者</title>
+    {% load staticfiles %}
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<p class="result-p">{{name}}</p>
+<p class="result-p">恭喜你完成本次练习</p>
+<p class="result-p">用时:{{time}}</p>
+
+
+
+<!--得分详情:-->
+<!--{% for train in all_train %}-->
+<!--{{train}}-->
+<!--{% endfor %}-->
+<p class="result-3">{{3_count}}次很棒</p>
+<p class="result-2">{{2_count}}次较好</p>
+<p class="result-1">{{1_count}}次一般</p>
+<p class="result-0">{{0_count}}次不好</p>
+
+<h1 class="result-h1">总得分:{{scores_all}}</h1>
+
+<a href="https://www.taobao.com/"><img src="/static/images/icon_award.png"></a>
+<a href="/"><img src="/static/images/restart.png"></a>
+</body>
+</html>
