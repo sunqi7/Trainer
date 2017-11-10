@@ -6,7 +6,12 @@
     {% load staticfiles %}
     <link href="/static/css/style.css" rel="stylesheet">
 </head>
-<body style="margin-top: 95px">
+<body style="margin-top: 35px">
+{% if train_list == None %}
+<h1 style="margin-bottom: 35px">第1个</h1>
+{% else %}
+<h1 style="margin-bottom: 35px">第{{train_list}}个</h1>
+{% endif %}
 <a href="/trainer/?point=0" class="train-list">
     <img src="/static/images/icon_01_s.png">
     <p>不好(0分)</p>

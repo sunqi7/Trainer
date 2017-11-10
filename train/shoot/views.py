@@ -52,6 +52,8 @@ def trainer(request):
 
                 # 控制训练组数
                 if len(train_result_list_file.train_result_list) < 20:
+                    # 提醒小的训练组第几个了
+                    ctx['train_list'] = len(train_result_list_file.train_result_list) + 1
                     print(len(train_result_list_file.train_result_list))
                     return render(request, 'trainer.html', ctx)
                 else:
@@ -75,6 +77,7 @@ def trainer(request):
                     print(train_result_list_file.n)
                     return render(request, 'list.html', ctx)
         else:
+            # 结果数据统计
             result_train_all = []
             for i in train_result_list_file.all_train_result_list:
                 if isinstance(i, list):
